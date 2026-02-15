@@ -1,0 +1,199 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 2457 >>
+stream
+BT
+/F1 11 Tf
+72 760 Td
+(# BuffaloSpeed MT5 Client Handover Guide) Tj
+0 -15 Td
+() Tj
+0 -15 Td
+(## 1\) What BuffaloSpeed does) Tj
+0 -15 Td
+(BuffaloSpeed is an automated MetaTrader 5 \(MT5\) Expert Advisor \(EA\) that:) Tj
+0 -15 Td
+(- scans multiple symbols from a configured symbol list,) Tj
+0 -15 Td
+(- generates trade signals using EMA crossover logic,) Tj
+0 -15 Td
+(- calculates lot size from account risk settings,) Tj
+0 -15 Td
+(- opens trades with SL/TP checks against broker stop rules,) Tj
+0 -15 Td
+(- manages open positions using break-even and trailing stop,) Tj
+0 -15 Td
+(- blocks new trades if drawdown/daily loss limits are breached,) Tj
+0 -15 Td
+(- displays a live dashboard on chart,) Tj
+0 -15 Td
+(- validates license key before trading.) Tj
+0 -15 Td
+() Tj
+0 -15 Td
+(## 2\) Installation \(MT5\)) Tj
+0 -15 Td
+(1. Open MT5 -> File -> Open Data Folder.) Tj
+0 -15 Td
+(2. Go to `MQL5/Experts/`.) Tj
+0 -15 Td
+(3. Copy these files into that folder:) Tj
+0 -15 Td
+(   - BuffaloSpeed.mq5) Tj
+0 -15 Td
+(   - BuffaloLogger.mqh) Tj
+0 -15 Td
+(   - BuffaloDashboard.mqh) Tj
+0 -15 Td
+(   - BuffaloSymbolManager.mqh) Tj
+0 -15 Td
+(   - BuffaloSignalEngine.mqh) Tj
+0 -15 Td
+(   - BuffaloMoneyManager.mqh) Tj
+0 -15 Td
+(   - BuffaloTradeManager.mqh) Tj
+0 -15 Td
+(   - BuffaloRiskManager.mqh) Tj
+0 -15 Td
+(4. Restart MT5 \(or refresh Navigator\).) Tj
+0 -15 Td
+(5. Open `BuffaloSpeed.mq5` in MetaEditor and compile.) Tj
+0 -15 Td
+() Tj
+0 -15 Td
+(## 3\) Setup before running) Tj
+0 -15 Td
+(- Attach BuffaloSpeed to one chart.) Tj
+0 -15 Td
+(- Enable Algo Trading in MT5.) Tj
+0 -15 Td
+(- Set inputs:) Tj
+0 -15 Td
+(  - License: `InpLicenseKey`) Tj
+0 -15 Td
+(  - Symbols: `InpSymbols` \(comma-separated, e.g. EURUSD,GBPUSD,USDJPY\)) Tj
+0 -15 Td
+(  - Signal: timeframe + MA periods) Tj
+0 -15 Td
+(  - Risk: per-trade %, max daily loss %, max drawdown %) Tj
+0 -15 Td
+(  - Protection: stop loss, take profit, break-even, trailing stop) Tj
+0 -15 Td
+(  - Execution: magic number, slippage) Tj
+0 -15 Td
+() Tj
+0 -15 Td
+(## 4\) How execution works) Tj
+0 -15 Td
+(1. On init: license + symbol validation + module setup.) Tj
+0 -15 Td
+(2. Every timer cycle:) Tj
+0 -15 Td
+(   - risk check runs,) Tj
+0 -15 Td
+(   - each configured symbol is processed,) Tj
+0 -15 Td
+(   - duplicate same-candle entries are prevented,) Tj
+0 -15 Td
+(   - signal is evaluated,) Tj
+0 -15 Td
+(   - lot size is calculated,) Tj
+0 -15 Td
+(   - order is sent only if broker stop-distance constraints are valid.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 1333 >>
+stream
+BT
+/F1 11 Tf
+72 760 Td
+(3. If position is open, SL is managed by break-even/trailing logic.) Tj
+0 -15 Td
+() Tj
+0 -15 Td
+(## 5\) How to monitor it) Tj
+0 -15 Td
+(Use the chart dashboard for:) Tj
+0 -15 Td
+(- License status) Tj
+0 -15 Td
+(- Symbol count) Tj
+0 -15 Td
+(- Risk check state \(OK/BLOCKED\)) Tj
+0 -15 Td
+(- Open positions) Tj
+0 -15 Td
+(- Balance and Equity) Tj
+0 -15 Td
+() Tj
+0 -15 Td
+(Also check MT5 Journal/Experts tabs for warnings or rejected orders.) Tj
+0 -15 Td
+() Tj
+0 -15 Td
+(## 6\) Testing path \(recommended\)) Tj
+0 -15 Td
+(- Compile in MetaEditor with 0 errors.) Tj
+0 -15 Td
+(- Run Strategy Tester by symbol/timeframe.) Tj
+0 -15 Td
+(- Run forward demo testing 2-4 weeks.) Tj
+0 -15 Td
+(- Confirm VPS uptime and reconnection behavior.) Tj
+0 -15 Td
+(- Validate broker stop/freeze levels.) Tj
+0 -15 Td
+() Tj
+0 -15 Td
+(## 7\) Live deployment policy) Tj
+0 -15 Td
+(- Ready for demo testing: Yes.) Tj
+0 -15 Td
+(- Ready for live trading: Only after all validation checks above pass.) Tj
+0 -15 Td
+() Tj
+0 -15 Td
+(## 8\) Client operating checklist \(quick\)) Tj
+0 -15 Td
+(- [ ] License key accepted) Tj
+0 -15 Td
+(- [ ] Algo Trading enabled) Tj
+0 -15 Td
+(- [ ] Correct symbols configured) Tj
+0 -15 Td
+(- [ ] Risk parameters approved) Tj
+0 -15 Td
+(- [ ] Demo validation completed) Tj
+0 -15 Td
+(- [ ] Live go-ahead approved) Tj
+ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000296 00000 n 
+0000002805 00000 n 
+0000002980 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+4365
+%%EOF
